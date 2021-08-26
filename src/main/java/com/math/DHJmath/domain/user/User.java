@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class UserEntity {
+public class User {
 
     // 필드
     @Id
@@ -32,16 +32,14 @@ public class UserEntity {
     
     // 생성자
     @Builder
-    public UserEntity(Long user_id, String name, String email, String picture, Role role){
-        this.user_id = user_id;
+    public User(String name, String email, String picture, Role role){
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.role = role;
     }
-    
-    @Builder
-    public UserEntity update(String name, String picture) {
+
+    public User update(String name, String picture) {
         this.name = name;
         this.picture = picture;
         
