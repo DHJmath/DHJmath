@@ -22,7 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
                     .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .anyRequest().authenticated()
-                .and()
+                .and() // 로그인 설정
+                    .formLogin()
+                    .loginPage("/user/login")
+                    .defaultSuccessUrl("/")
+                    .permitAll()
+                .and() // 로그아웃 설정
                     .logout()
                         .logoutSuccessUrl("/")
                 .and()
