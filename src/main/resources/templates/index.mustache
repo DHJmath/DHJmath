@@ -1,0 +1,17 @@
+{{>layout/header}}
+
+</head>
+
+<body>
+
+    <h1>임시 화면</h1>
+
+    {{#userName}}
+        {{userName}} 님 환영합니다.
+        <a href="/logout" role="button">로그아웃</a>
+    {{/userName}}
+    {{^userName}}
+        <a href="/user/login" role="button">로그인</a>
+    {{/userName}}
+
+{{>layout/footer}}

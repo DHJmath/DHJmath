@@ -1,0 +1,61 @@
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0, 70, 42, 0.9);
+        }
+
+        .ModalArea {
+            background-color: #fff;
+            border: 1px solid rgb(0, 70, 42);
+            margin: auto;
+            margin-top: 15%;
+            width: 25%;
+            height: 250px;
+            padding: 20px 20px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 5px rgb(0, 70, 42);
+
+        }
+
+
+        .btnArea {
+            width: 80%;
+            margin: auto;
+            margin-top: 70px;
+        }
+
+        .btn {
+            border: 1px solid rgb(0, 70, 42);
+            border-radius: 5px;
+            width: 100%;
+            height: 30px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: rgb(0, 70, 42);
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover, .cancelBtn:hover{
+            background-color: rgba(0, 70, 42, 0.5);
+        }
+
+        .cancelArea {
+            width: 100%;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+
+        .cancelBtn {
+            border: 1px solid rgb(0, 70, 42);
+            border-radius: 5px;
+            float: right;
+            font-size: 20px;
+            color: rgb(0, 70, 42);
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+    </style>

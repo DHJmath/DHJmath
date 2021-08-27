@@ -1,0 +1,26 @@
+1. google 서비스 등록
+구글 서비스에 신규 서비스 생성
+→ 여기서 인증정보(cilentId 와 cilentSecret)를 발급받고 시작해야함
+
+2. application-oauth 등록
+프로퍼티 파일 만들고 클라이언트 id 비번 등록
+깃허브에 올라가지 않게 .gitignore 에 등록
+
+3. 구글 로그인 연동을 위한 객체
+3-1. class UserEntity
+3-2. enum Role
+3-3. interface UserRepository - JpaRepository 상속
+
+4. 스프링 시큐리티 설정
+4-1. build.gradle 에 의존체 추가
+// 스프링 부트 시큐리티
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+4-2. config.auth 폴더 생성 : 시큐리티 관련 클래스 담는 폴더
+4-3. class SecurityConfig 생성
+4-4. class CustomOAuth2UserService 생성 : 구글 로그인 후 가져온 사용자 정보를 기반으로 가입/정보수정/세션저장 기능 수행
+4-5. dto 폴더 생성
+4-6. class OAuthAttributes 생성
+4-7. class SessionUser 생성
+
+
