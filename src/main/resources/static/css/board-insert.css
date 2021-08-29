@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+textarea:focus, input:focus, input[type]:focus {
+    border-color: rgba(0, 70, 42, 0.7);
+    box-shadow: 0 1px 1px rgba(0, 70, 42, 0.7) inset, 0 0 3px rgba(0, 70, 42, 0.7);
+    outline: 0 none;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.form-div {
+    text-align: center;
+}
+
+.write-tab {
+    font-size: 2rem;
+    width: 85rem;
+    text-align: center;
+}
+
+.write-tab input {
+    width: 70.5rem;
+    height: 2rem;
+}
+
+.btn-div {
+    padding: 3rem;
+}
+
+.board-btn {
+    background: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    border: 1px solid rgb(0, 70, 42) ;
+    border-radius: 3px;
+    width: 9rem;
+    height: 3.5rem;
+    margin: 1.5rem;
+}
+
+.board-btn:hover {
+    cursor: pointer;
+    background: rgb(0, 70, 42);
+    color: white;
+}
+
+textarea {
+    resize: none;
+}

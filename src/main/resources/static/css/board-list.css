@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+#write-btn {
+    margin: 1.5rem;
+    float: right;
+    background: white;
+    font-weight: bolder;
+    border: 1px solid rgb(0, 70, 42) ;
+    width: 7rem;
+    height: 3rem;
+}
+
+#write-btn:hover {
+    cursor: pointer;
+    background: rgb(0, 70, 42);
+    color: white;
+}
+
+#board-tab {
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 85rem;
+    font-size: 1.5rem;
+    border-collapse: collapse;
+}
+
+.table-area {
+    text-align: center;
+}
+
+#board-tab th, #board-tab td {
+    border-bottom: 1px solid black;
+    height: 2rem;
+    padding: 1.7rem;
+}
+
+#board-tab tr:hover {
+    cursor: pointer;
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    padding: 5rem;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
