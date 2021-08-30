@@ -9,12 +9,13 @@ import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class BoardSerice {
+public class BoardService {
 
     private final BoardRepository boardRepository;
 
-//    @Transactional
-//    public Long save(BoardSaveRequestDto requestDto) {
-//        return boardRepository.save(requestDto.toEntity()).getId();
-//    }
+    @Transactional
+    public Long save(BoardSaveRequestDto requestDto) {
+        return boardRepository.save(requestDto.toEntity()).getBoardId();
+    }
+
 }
