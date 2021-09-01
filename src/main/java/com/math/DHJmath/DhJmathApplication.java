@@ -12,8 +12,10 @@ public class DhJmathApplication {
 		SpringApplication.run(DhJmathApplication.class, args);
 	}
 
+	// PutMapping, DeleteMapping을 위한 Bean
 	@Bean
 	public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
 		return new HiddenHttpMethodFilter();
 	}
+
 }

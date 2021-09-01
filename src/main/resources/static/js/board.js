@@ -30,7 +30,7 @@ var main = {
             contentType: 'application/json; charset = utf-8'
         }).done(function() {
             alert('글이 삭제되었습니다.');
-            window.location.href = '/';
+            window.location.href = '/board/boardList';
         }).fail(function() {
             alert(JSON.stringify(error));
             // JSON.stringify() 메서드는 JavaScript 값이나 객체를 JSON 문자열로 변환합니다.

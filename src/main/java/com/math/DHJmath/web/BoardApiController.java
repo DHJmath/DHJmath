@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.function.LongFunction;
+
 @RequiredArgsConstructor
 @RestController
 public class BoardApiController {
@@ -21,11 +23,26 @@ public class BoardApiController {
        return boardService.save(requestDto);
     }
 
-
-
+    // 게시글 리스트 조회
     @GetMapping("/board/boardList")
-    public String boardList() {
+    public String boardList(Model model) {
+        model.addAttribute("boardList", boardService.findAllDesc());
         return "board/board-list";
+    }
+
+//    // 게시글 디테일 조회
+//    @GetMapping("/api/board/{boardId}")
+//    public BoardResponseDto findById (@PathVariable Long boardId) {
+//        return boardService.findById(boardId);
+//    }
+
+    // 게시글 디테일 조회
+    @GetMapping("/board/update/{boardId}")
+    public String findById(@PathVariable Long boardId,
+                         Model model) {
+        BoardResponseDto dto = boardService.findById(boardId);
+        model.addAttribute("board", dto);
+        return "board/board";
     }
 
 
@@ -37,7 +54,7 @@ public class BoardApiController {
     }
 
     // 글 내용을 담아서 수정페이지로 이동
-    @GetMapping("/api/board/update/{boardId}")
+    @GetMapping("/board/update/{boardId}")
     public String update(@PathVariable Long id,
                          Model model) {
         BoardResponseDto dto = boardService.findById(id);
