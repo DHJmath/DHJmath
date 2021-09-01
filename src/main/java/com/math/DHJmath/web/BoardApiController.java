@@ -1,8 +1,11 @@
 package com.math.DHJmath.web;
 
 import com.math.DHJmath.service.board.BoardService;
+import com.math.DHJmath.web.dto.BoardResponseDto;
 import com.math.DHJmath.web.dto.BoardSaveRequestDto;
+import com.math.DHJmath.web.dto.BoardUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -22,7 +25,7 @@ public class BoardApiController {
 
     @GetMapping("/board/boardList")
     public String boardList() {
-        return "board-list";
+        return "board/board-list";
     }
 
 
@@ -31,6 +34,22 @@ public class BoardApiController {
     public Long delete(@PathVariable Long boardId) {
         boardService.delete(boardId);
         return boardId;
+    }
+
+    // 글 내용을 담아서 수정페이지로 이동
+    @GetMapping("/api/board/update/{boardId}")
+    public String update(@PathVariable Long id,
+                         Model model) {
+        BoardResponseDto dto = boardService.findById(id);
+        model.addAttribute("board", dto);
+        return "board/board-update";
+    }
+
+    // 수정한 form으로 수정완료하기
+    @PutMapping("/api/board/{boardId}")
+    public Long updateEnd(@PathVariable Long id,
+                          @RequestBody BoardUpdateRequestDto requestDto) {
+        return boardService.update(id, requestDto);
     }
 
 }

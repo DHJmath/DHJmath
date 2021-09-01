@@ -2,7 +2,9 @@ package com.math.DHJmath.service.board;
 
 import com.math.DHJmath.domain.board.Board;
 import com.math.DHJmath.domain.board.BoardRepository;
+import com.math.DHJmath.web.dto.BoardResponseDto;
 import com.math.DHJmath.web.dto.BoardSaveRequestDto;
+import com.math.DHJmath.web.dto.BoardUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,21 @@ public class BoardService {
         boardRepository.delete(board);
     }
 
+    @Transactional
+    public Long update(Long id, BoardUpdateRequestDto requestDto) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+
+        board.update(requestDto.getBoardTitle(), requestDto.getBoardContent());
+
+        return id;
+    }
+
+    public BoardResponseDto findById(Long id) {
+        Board entity = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id) );
+        return new BoardResponseDto(entity);
+    }
 }
 
 
