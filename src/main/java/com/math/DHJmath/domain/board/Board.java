@@ -22,10 +22,17 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
-    @Column(nullable = false)
+//    @ManyToOne
+//    @JoinColumn(name="User")
+//    private User user
+;
+    @Column(columnDefinition = "varchar(255)", nullable = false)
     private String boardTitle;
+    @Column(columnDefinition = "TEXT", nullable = false) // 직접 컬럼 정보를 작성할 수 있다.
     private String boardContent;
+    @Column(columnDefinition = "integer check('1','2')")
     private int boardLevel;
+    @Column(columnDefinition = "integer default 0")
     private int boardHit;
     private LocalDate boardDate;
     private Long userId;

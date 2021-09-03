@@ -7,13 +7,92 @@ var main = {
             _this.save();
         });
 
+        $('#btn-board-update').on('click', function () {
+            boardId = $(#boardId).val();
+            window.location.href = '/board/update/'+boardId;
+        });
+
+        $('#btn-update').on('click', function () {
+            _this.update();
+        });
+
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
     },
 
     save : function () {
-        // 작성해야됨
+
+        boardTitle = $('#boardTitle').val();
+        userId = $('#userId').val();
+        boardContent = $('#boardContent').val();
+
+        if (boardTitle == '' || boardTitle == NULL) {
+            alert('제목을 입력하세요');
+            return false;
+        }
+
+        if (boardContent == '' || boardContent == NULL) {
+            alert('내용을 입력하세요');
+            return false;
+        }
+
+        var data = {
+            boardTitle: boardTitle,
+            userId: userId,
+            boardContent: boardContent
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/board/',
+            dataType: 'json',
+            contentType: 'application/json; charset = utf-8'
+        }).done(function() {
+            alert('글이 등록되었습니다.');
+            window.location.href = '/board/boardList';
+        }).fail(function() {
+            alert(JSON.stringify(error));
+            // JSON.stringify() 메서드는 JavaScript 값이나 객체를 JSON 문자열로 변환합니다.
+        });
+
+    },
+
+    update : function () {
+
+        boardTitle = $('#boardTitle').val();
+        boardContent = $('#boardContent').val();
+        boardId = $('#boardId').val();
+
+        if (boardTitle == '' || boardTitle == NULL) {
+            alert('수정할 제목을 입력하세요');
+            return false;
+        }
+
+        if (boardContent == '' || boardContent == NULL) {
+            alert('수정할 내용을 입력하세요');
+            return false;
+        }
+
+        var data = {
+            boardTitle: boardTitle,
+            userId: userId,
+            boardContent: boardContent
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/board/'+boardId,
+            dataType: 'json',
+            contentType: 'application/json; charset = utf-8'
+        }).done(function() {
+            alert('글이 등록되었습니다.');
+            window.location.href = '/board/boardList';
+        }).fail(function() {
+            alert(JSON.stringify(error));
+             // JSON.stringify() 메서드는 JavaScript 값이나 객체를 JSON 문자열로 변환합니다.
+        });
+
     },
 
     delete : function () {
