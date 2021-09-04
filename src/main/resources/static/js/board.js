@@ -1,3 +1,22 @@
+// board-datail 용 dropDown
+$('.showArea').on('click', function() {
+	$(this).next('.dropArea').slideToggle(300);
+    // +, - 아이콘 바꾸기
+    var plus = $(this).children('span').children('.bi-plus-lg');
+    var dash = $(this).children('span').children('.bi-dash-lg');
+
+    console.log(plus);
+    console.log(dash);
+
+    if ( dash.css('display') == 'none' ) {
+        dash.css('display', 'block');
+        plus.css('display', 'none');
+    } else {
+        plus.css('display', 'block');
+        dash.css('display', 'none');
+    }
+});
+
 var main = {
 
     init : function () {

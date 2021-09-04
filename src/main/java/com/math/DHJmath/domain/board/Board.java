@@ -35,8 +35,14 @@ public class Board {
     @Column(columnDefinition = "integer default 0")
     private int boardHit;
     private LocalDate boardDate;
-    private Long userId;
-    private Long cateId;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "cateId")
+//    private Categoty cateId;
 
 
 //    // 생성자

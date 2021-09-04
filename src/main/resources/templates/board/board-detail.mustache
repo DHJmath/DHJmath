@@ -1,0 +1,169 @@
+{{>layout/header}}
+
+<link rel="stylesheet" href="/css/board-detail.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="content">
+            <h1>자유게시판 글보기</h1>
+            <br><br><br><br>
+
+            <div>
+                <!-- 글 상세 정보 테이블 -->
+                <table class="board-tab">
+                    <button id="btn-board-update">수정하기</button>
+                    <tr>
+                        <td class="cate">제목 </td>
+                        <td colspan="5">
+                            <div class="title-area">
+                                <p>{{board.boardTitle}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cate">작성자 </td>
+                        <td>&nbsp;{{board.userID}}</td>
+                        <td class="cate">작성일</td>
+                        <td>&nbsp;{{board.boardDate}}</td>
+                        <td class="cate">조회수</td>
+                        <td>&nbsp;{{board.boardHit}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div class="board-content">
+                                <p>
+                                    {{board.boardContent}}
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br><br><br><br><br> <br><br>
+
+                <!-- 댓글 영역 -->
+                <div class="comments-div">
+                    <p style="font-size: larger;">댓글</p>
+                    <br>
+
+                    <!-- sessionUser 정보가 있다면 댓글 작성가능 -->
+                    {{#sessionUser}}
+                    <div class="comment-write">
+<!--                        <form action="" class="comment-form">-->
+                            <input type="hidden" name="userId" value="{{userId}}"> <!-- 세션에서 받은 userId -->
+                            <input type="hidden" name="boardNo" value="{{boardId}}">
+                            <textarea name="commentContent" cols="100" rows="5"></textarea>
+                            <button id="comment-save">댓글달기</button>
+<!--                        </form>-->
+                    </div>
+                    {{/sessionUser}}
+
+                    <br><br>
+
+                    <!-- 댓글 테이블 -->
+                    <div class="table-area">
+                        <dl id="comments-table">
+                        {{#commentList}}
+                            <dt class="showArea">
+                                <div class="user-div">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>&nbsp;
+                                    <p>{{userId}}</p>
+                                </div>
+                                <span class="accIcon" style="float: right; margin-right: 30px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                        <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"/>
+                                    </svg>
+                                </span>
+                                <div class="comments-cont">
+                                    <p>
+                                        {{commentContent}}
+                                    </p>
+                                </div>
+                            </dt>
+                            <!-- 대댓글 영역 -->
+                            <dd class="dropArea">
+                                {{#recommentList}}
+                                <div class="recomment-div">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+                                    </svg>
+                                    <br />
+                                    <div class="recomment-content">
+                                        <div class="user-div">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                            </svg>&nbsp;
+                                            <p>{{userId}}</p>
+                                        </div>
+                                        <span class="re-comment">
+                                            {{commentContent}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <br>
+                                {{/recommentList}}
+                                <!-- sessionUser 정보가 있다면 대댓글 작성가능 -->
+                                {{#sessionUser}}
+                                <div class="recomment-div">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+                                    </svg>
+                                    <br />
+                                    <div class="recomment-content">
+                                        <div class="user-div">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                            </svg>&nbsp;
+                                            <p>{{userId}}</p><!-- 세션에서 받아온 userId -->
+                                        </div>
+                                        <span class="re-comment">
+<!--                                            <form action="" class="recomment-form">-->
+                                                <input type="hidden" name="userId" value="{{userId}}">
+                                                <input type="hidden" name="commentId" value="{{commentId}}">
+                                                <input type="hidden" name="boardId" value="{{boardId}}">
+                                                <textarea name="commentContent" cols="65" rows="2"></textarea>
+                                                <button class="recomment-save">등록</button>
+<!--                                            </form>-->
+                                        </span>
+                                    </div>
+                                </div>
+                                {{/sessionUser}}
+
+                            </dd><hr>
+                            {{/commentList}}
+
+                        </dl>
+
+                        <!-- 페이지네이션 영역 -->
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+
+                        <br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="/js/board.js">
+
+{{>layout/footer}}

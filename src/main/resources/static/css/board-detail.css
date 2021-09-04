@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+
+.board-tab {
+    font-size: 2rem;
+    width: 85rem;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 1.5rem;
+}
+
+.board-tab td {
+    border: 1px solid black;
+}
+
+.board-tab p {
+    margin: 2.5rem;
+}
+
+.title-area {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.writer {
+    font-size: 1.5rem;
+}
+
+.cate {
+    width: 9rem;
+    height: 3.5rem;
+    text-align: center;
+    background: rgb(0, 70, 42);
+    color: white;
+}
+
+.comments-div {
+    font-size: 1.7rem;
+    margin: 2rem;
+}
+
+#comment-tab {
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 85rem;
+    font-size: 1.5rem;
+    border-collapse: collapse;
+}
+
+
+
+#comment-tab th, #comment-tab td {
+    border-bottom: 1px solid black;
+    height: 2rem;
+    padding: 1.7rem;
+}
+
+#comment-tab tr:hover {
+    cursor: pointer;
+}
+
+.bi-dash-lg {
+    display: none;
+}
+
+.dropArea {
+    display: none;
+}
+
+.showArea {
+    height: auto;
+}
+
+.accIcon {
+    float: right;
+}
+
+.user-div {
+    vertical-align: middle;
+    display: flex;
+}
+
+.user-div p {
+    margin: 0 0 0 4px;
+    vertical-align: middle;
+}
+
+.user-div svg {
+    vertical-align: middle;
+    margin-top: 2px;
+}
+
+.comments-cont {
+    margin-left: 5rem;
+    text-align: left;
+}
+
+.re-comment {
+    margin-left: 3rem;
+}
+
+.recomment-div {
+    display: flex;
+}
+
+.recomment-content {
+    margin-left: 3rem;
+    display: flex;
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    padding: 5rem;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.table-area {
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.comment-write {
+    height: 6rem;
+    display: flex;
+}
+
+#comment-save {
+    background: rgb(0, 70, 42);
+    color: white;
+    width: 8rem;
+    height: 6rem;
+    border: 1px solid rgb(0, 70, 42);
+    font-size: 1.5rem;
+}
+
+.recomment-save {
+    background: rgb(0, 70, 42);
+    color: white;
+    width: 5rem;
+    height: 3.5rem;
+    border: 1px solid rgb(0, 70, 42);
+    font-size: 1.5rem;
+}
+
+#comment-save:hover, .recomment-save:hover {
+    cursor: pointer;
+}
+
+dt:hover {
+    cursor: pointer;
+}
+
+.comment-form, .recomment-form {
+    display: flex;
+}
+
+#btn-board-update {
+    margin: 1.5rem;
+    float: right;
+    background: rgb(0, 70, 42);
+    color: white;
+    border: 1px solid rgb(0, 70, 42);
+    font-weight: bolder;
+    width: 7rem;
+    height: 3rem;
+}
+
+#btn-board-update:hover {
+    cursor: pointer;
+}
