@@ -20,7 +20,7 @@ public class IndexController {
         // 세션에 저장된 값이 있을 때만 model에 userName 등록
         // 세션에 저장된 값이 없으면 로그인 버튼이 보임
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("sessionUser", user);
         }
 
         return "index";

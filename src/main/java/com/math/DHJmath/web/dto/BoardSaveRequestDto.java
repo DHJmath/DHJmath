@@ -18,32 +18,35 @@ public class BoardSaveRequestDto {
 
     private String boardTitle;
     private String boardContent;
-    private int boardLevel;
     private int boardHit;
     private LocalDate boardDate;
-    private User userId;
-    private Category cateId;
+    private User user;
+    private Category category;
 
     @Builder
     public BoardSaveRequestDto(String boardTitle,
                  String boardContent,
-                 int boardLevel,
                  int boardHit,
                  LocalDate boardDate,
-                 User userId,
-                 Category cateId) {
+                 User user,
+                 Category category) {
 
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
-        this.boardLevel = boardLevel;
         this.boardHit = boardHit;
         this.boardDate = boardDate;
-        this.userId = userId;
-        this.cateId = cateId;
+        this.user = user;
+        this.category = category;
     }
 
     public Board toEntity() {
-        return new Board(boardTitle, boardContent, boardLevel, boardHit,
-                boardDate, userId, cateId);
+        return Board.builder()
+                .boardTitle(boardTitle)
+                .boardContent(boardContent)
+                .boardHit(boardHit)
+                .boardDate(boardDate)
+                .user(user)
+                .category(category)
+                .build();
     }
 }

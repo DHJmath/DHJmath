@@ -18,7 +18,7 @@ public class BoardListResponseDto {
         this.boardId = entity.getBoardId();
         this.boardTitle = entity.getBoardTitle();
         this.boardDate = entity.getBoardDate();
-        this.userId = entity.getUserId();
+        this.userId = entity.getUser().getUserId();
         this.boardHit = entity.getBoardHit();
     }
 

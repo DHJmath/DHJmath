@@ -28,9 +28,6 @@ public class Board {
     @Column(columnDefinition = "TEXT", nullable = false) // 직접 컬럼 정보를 작성할 수 있다.
     private String boardContent;
 
-    @Column(columnDefinition = "integer check('1','2')")
-    private int boardLevel;
-
     @Column(columnDefinition = "integer default 0")
     private int boardHit;
 
@@ -50,7 +47,6 @@ public class Board {
     @Builder
     public Board(String boardTitle,
                  String boardContent,
-                 int boardLevel,
                  int boardHit,
                  LocalDate boardDate,
                  User user,
@@ -58,7 +54,6 @@ public class Board {
 
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
-        this.boardLevel = boardLevel;
         this.boardHit = boardHit;
         this.boardDate = LocalDate.now();
         this.user = user;

@@ -1,5 +1,7 @@
 package com.math.DHJmath.web;
 
+import com.math.DHJmath.config.auth.LoginUser;
+import com.math.DHJmath.config.auth.dto.SessionUser;
 import com.math.DHJmath.service.board.BoardService;
 import com.math.DHJmath.web.dto.BoardResponseDto;
 import com.math.DHJmath.web.dto.BoardSaveRequestDto;
@@ -17,8 +19,14 @@ public class BoardApiController {
 
     private final BoardService boardService;
 
+    // 게시글 등록페이지로 이동
+    @GetMapping("board/save")
+    public String goSave() {
+        return "board/board-save";
+    }
+
     // 게시글 등록
-    @PostMapping("/api/board")
+    @PostMapping("/api/board/save")
     public Long save(@RequestBody BoardSaveRequestDto
                                            requestDto) {
        return boardService.save(requestDto);
@@ -57,16 +65,27 @@ public class BoardApiController {
 
     // 글 내용을 담아서 수정페이지로 이동
     @GetMapping("/board/update/{boardId}")
-    public String update(@PathVariable Long id,
-                         Model model) {
+    public String goUpdate(@PathVariable Long id,
+                         Model model,
+                         @LoginUser SessionUser user) {
+
         BoardResponseDto dto = boardService.findById(id);
-        model.addAttribute("board", dto);
-        return "board/board-update";
+
+        // 작성자와 로그인 정보가 같은지 확인
+        if ( user.getEmail() == dto.getUser().getEmail() ) {
+            model.addAttribute("board", dto);
+            return "board/board-update";
+            
+        // 같지 않다면 로그인창으로
+        } else {
+            return "user/login";
+        }
+
     }
 
     // 수정한 form으로 수정완료하기
     @PutMapping("/api/board/{boardId}")
-    public Long updateEnd(@PathVariable Long id,
+    public Long update(@PathVariable Long id,
                           @RequestBody BoardUpdateRequestDto requestDto) {
         return boardService.update(id, requestDto);
     }
