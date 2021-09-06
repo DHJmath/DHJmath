@@ -22,18 +22,19 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
-//    @ManyToOne
-//    @JoinColumn(name="User")
-//    private User user
-;
     @Column(columnDefinition = "varchar(255)", nullable = false)
     private String boardTitle;
+
     @Column(columnDefinition = "TEXT", nullable = false) // 직접 컬럼 정보를 작성할 수 있다.
     private String boardContent;
+
     @Column(columnDefinition = "integer check('1','2')")
     private int boardLevel;
+
     @Column(columnDefinition = "integer default 0")
     private int boardHit;
+
+    @Column(columnDefinition = "date default now()")
     private LocalDate boardDate;
 
     @ManyToOne
@@ -42,12 +43,27 @@ public class Board {
 
     @ManyToOne
     @JoinColumn(name = "cateId")
-//    private Categoty cateId;
+    private Category category;
 
 
-//    // 생성자
-//    @Builder
-//    public Board(String boardTitle, String boardContent, int boardLevel,  )
+    // 생성자
+    @Builder
+    public Board(String boardTitle,
+                 String boardContent,
+                 int boardLevel,
+                 int boardHit,
+                 LocalDate boardDate,
+                 User user,
+                 Category category) {
+
+        this.boardTitle = boardTitle;
+        this.boardContent = boardContent;
+        this.boardLevel = boardLevel;
+        this.boardHit = boardHit;
+        this.boardDate = LocalDate.now();
+        this.user = user;
+        this.category = category;
+    }
 
 
     // 메소드

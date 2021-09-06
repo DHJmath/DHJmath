@@ -59,6 +59,11 @@ public class BoardService {
         // map은 요소들을 특정조건에 해당하는 값으로 변환 // new : 클래스 생성자
     }
 
+    @Transactional
+    public int updateView(Long boardId) {
+        return boardRepository.updateView(boardId);
+    }
+
 }
 
 

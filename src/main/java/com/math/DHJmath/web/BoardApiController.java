@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.function.LongFunction;
 
 @RequiredArgsConstructor
@@ -40,6 +41,7 @@ public class BoardApiController {
     @GetMapping("/board/update/{boardId}")
     public String findById(@PathVariable Long boardId,
                          Model model) {
+        boardService.updateView(boardId);
         BoardResponseDto dto = boardService.findById(boardId);
         model.addAttribute("board", dto);
         return "board/board";
@@ -68,6 +70,8 @@ public class BoardApiController {
                           @RequestBody BoardUpdateRequestDto requestDto) {
         return boardService.update(id, requestDto);
     }
+
+
 
 }
 

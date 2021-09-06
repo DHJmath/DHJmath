@@ -30,11 +30,11 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User userId;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "boardId")
-    private Board boardId;
+    private Board board;
 
     @Builder
     public Comment(Long commentId,
@@ -42,16 +42,16 @@ public class Comment {
                    LocalTime commentDate,
                    int commentLevel,
                    int referenceCommentId,
-                   User userId,
-                   Board boardId) {
+                   User user,
+                   Board board) {
 
         this.commentId = commentId;
         this.commentContent = commentContent;
         this.commentDate = commentDate;
         this.commentLevel = commentLevel;
         this.referenceCommentId = referenceCommentId;
-        this.userId = userId;
-        this.boardId = boardId;
+        this.user = user;
+        this.board = board;
     }
 
 }

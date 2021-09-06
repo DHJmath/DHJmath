@@ -24,7 +24,7 @@ public class BoardResponseDto {
         this.boardLevel = entity.getBoardLevel();
         this.boardHit = entity.getBoardHit();
         this.boardDate = entity.getBoardDate();
-        this.userId = entity.getUserId();
-        this.cateId = entity.getCateId();
+        this.userId = entity.getUser().getUserId();
+        this.cateId = entity.getCategory().getCateId();
     }
 }

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* 1rem = 10px 설정용 */
+html {
+    font-size: 62.5%;
+    height: auto;
+    overflow: hidden;
+}
+
+#top-bar {
+    width: 100%;
+    height: 10rem;
+    background: rgb(0, 70, 42);
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.top-divs {
+    display: inline-block;
+}
+
+#login-icon {
+    float: right;
+    width: 5rem;
+    text-align: center;
+    padding: 1rem;
+    margin: 2rem;
+    font-size: 3rem;
+}
+
+#logo-img-div {
+    padding: 1.5rem;
+}
+
+.menu_list {
+    list-style: none;
+    padding: 1.5rem;
+    padding-left: 4rem;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.menu_list:hover {
+    cursor: pointer;
+    background: rgb(0, 70, 42);
+    color: white;
+    transition: 0.2s;
+}
+
+
+#header-nav {
+    width: 40rem;
+    top: 0;
+    float: left;
+}
+
+.menu-nav {
+    list-style: none;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+.sub-menu {
+    padding-left: 8rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+section {
+    display: flex;
+    position: fixed;
+    width: calc(100% - 40rem);
+    top: 10rem;
+    left: 40rem;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+.content {
+    padding: 6rem 18rem 6rem 18rem;
+
+}
+
+.text-area {
+    font-size: 1.7rem;
+}
+
+pre {
+    font-size: 2rem;
+}
