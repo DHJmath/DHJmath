@@ -46,12 +46,10 @@
                     <!-- sessionUser 정보가 있다면 댓글 작성가능 -->
                     {{#sessionUser}}
                     <div class="comment-write">
-<!--                        <form action="" class="comment-form">-->
-                            <input type="hidden" name="userId" value="{{sessionUser.userId}}"> <!-- 세션에서 받은 userId -->
-                            <input type="hidden" name="boardNo" value="{{board.boardId}}">
-                            <textarea name="commentContent" cols="100" rows="5"></textarea>
-                            <button id="comment-save">댓글달기</button>
-<!--                        </form>-->
+                        <input type="hidden" name="userId" value="{{sessionUser.userId}}"> <!-- 세션에서 받은 userId -->
+                        <input type="hidden" name="boardNo" value="{{board.boardId}}">
+                        <textarea name="commentContent" cols="100" rows="5"></textarea>
+                        <button id="comment-save">댓글달기</button>
                     </div>
                     {{/sessionUser}}
 
@@ -122,13 +120,11 @@
                                             <p>{{userId}}</p><!-- 세션에서 받아온 userId -->
                                         </div>
                                         <span class="re-comment">
-<!--                                            <form action="" class="recomment-form">-->
-                                                <input type="hidden" name="userId" value="{{userId}}">
-                                                <input type="hidden" name="commentId" value="{{commentId}}">
-                                                <input type="hidden" name="boardId" value="{{boardId}}">
-                                                <textarea name="commentContent" cols="65" rows="2"></textarea>
-                                                <button class="recomment-save">등록</button>
-<!--                                            </form>-->
+                                            <input type="hidden" name="userId" value="{{userId}}">
+                                            <input type="hidden" name="commentId" value="{{commentId}}">
+                                            <input type="hidden" name="boardId" value="{{boardId}}">
+                                            <textarea name="commentContent" cols="65" rows="2"></textarea>
+                                            <button class="recomment-save">등록</button>
                                         </span>
                                     </div>
                                 </div>

@@ -103,6 +103,7 @@ h1 {
 
 .re-comment {
     margin-left: 3rem;
+    display: flex;
 }
 
 .recomment-div {
@@ -165,10 +166,6 @@ textarea {
 
 dt:hover {
     cursor: pointer;
-}
-
-.comment-form, .recomment-form {
-    display: flex;
 }
 
 #btn-board-update {
